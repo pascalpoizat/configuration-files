@@ -30,6 +30,15 @@ in preferences, complex modifications, import new rules and chose
 *** Fira Code
 https://github.com/tonsky/FiraCode
 
+*** Fira Code Patched (Nerd fonts)
+https://nerdfonts.com TODO:
+
+*** iTerm2 Color Schemes and Themes
+http://iterm2colorschemes.com includes monokai soda
+
+*** Terminal Color Schemes
+https://github.com/lysyi3m/osx-terminal-themes includes monokai soda
+
 * System 
 
 ** Browsers
@@ -59,6 +68,7 @@ https://www.dropbox.com
 
 ** iTerm2
 https://iterm2.com
+
 ** Oh My Zsh
 https://github.com/robbyrussell/oh-my-zsh TODO:
 * Development
