@@ -1,0 +1,151 @@
+* Install first
+
+** Aliases
+add to ~/.bash_profile
+```
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+``
+** Eduroam
+http://www.eduroam.fr
+Get the certificate installer from https://cat.eduroam.org
+
+** Homebrew
+https://brew.sh
+
+* UI 
+
+** Magnet
+http://magnet.crowdcafe.com
+available on the apple store
+
+** Karabiner
+https://pqrs.org/osx/karabiner/
+in preferences, complex modifications, import new rules and chose
+"Change caps_lock key to command+control+option+shift. (Post escape key when pressed alone)".
+
+** Fonts
+
+*** Fira Code
+https://github.com/tonsky/FiraCode
+
+* System 
+
+** Browsers
+
+*** Safari
+extensions: DuckDuckGo, UBlockOrigin
+
+*** Chrome
+https://www.google.com/intl/fr/chrome/browser/desktop/index.html
+extensions: uBlockOrigin, uBO-Scope, uMatrix 
+
+** Alfred 3
+https://www.alfredapp.com
+a simple version is available on the apple store but for powerpack the web site version is required
+activate powerpack
+add Dash workflow (see Dash)
+add StackOverflow workflow https://github.com/deanishe/alfred-stackoverflow
+add GitHub workflow (a github auth token will be required)
+** Dropbox
+https://www.dropbox.com
+
+** Command Line Tools for Xcode
+(installed when installing Homebrew)
+
+** Zsh
+(installed by Apple)
+
+** iTerm2
+https://iterm2.com
+** Oh My Zsh
+https://github.com/robbyrussell/oh-my-zsh TODO:
+* Development
+
+** IDE
+
+*** Emacs / Spacemacs
+https://www.emacswiki.org/emacs/EmacsForMacOS
+https://github.com/d12frosted/homebrew-emacs-plus
+```
+brew tap d12frosted/emacs-plus
+brew install emacs-plus
+```
+http://spacemacs.org
+```git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d```
+copy configuration
+
+*** Visual Studio Code
+https://code.visualstudio.
+update configuration file
+extensions:
+vim, vscode-icons, org mode,
+dash, plantuml,
+TODO highlight, git history, visual studio code commitizen support,
+language support for java, java extension pack, debugger for java, 
+python
+
+*** IntelliJ IDEA
+https://www.jetbrains.com/idea/
+
+
+** VCS
+
+*** Git
+(installed by Apple)
+.gitconfig and .gitignore_global configuration files
+
+*** Hub
+```
+brew install hub
+
+```
+add to ~/.bash_profile
+```
+alias git=hub
+```
+
+** Build
+*** Gradle
+```brew install gradle```
+
+*** Maven
+```brew install maven```
+
+** Java
+http://www.oracle.com/technetwork/java/javase/downloads/index.html
+Java SE 8u152 
+
+** Haskell
+*** Stack
+https://docs.haskellstack.org/en/stable/README/
+try ```brew install haskell-stack```
+if it begins to compile all then rather use ```curl -sSL https://get.haskellstack.org/ | sh```
+note that "The Homebrew formula and bottles are unofficial and lag slightly behind new Stack releases, but tend to be updated within a day or two.".
+install GHC using ```stack setup```
+*** Haskell tools
+install apply-refact, hlint, stylish-haskell, hasktags, hoogle, ghc-mod, intero
+this can be done using ```stack install <name>```
+all is installed in ~/.local/bin so add this to your PATH 
+*** Haskell layer for spacemacs
+http://spacemacs.org/layers/+lang/haskell/README.html
+see spacemacs configuration file
+*** Haskell for Visual Studio Code
+https://marketplace.visualstudio.com/items?itemName=Vans.haskero
+install haskell syntax highlighting, haskell-linter, haskero, hindent format, hoogle-vscode, stylish-haskell,
+** Python3
+```brew install python3```
+
+** Dash
+https://kapeli.com/dash
+activate licence
+download docs
+activate the Alfred workflow in preferences/integration
+* Fun
+
+** mps-youtube
+https://github.com/mps-youtube/mps-youtube
+
+** wallpapers
+http://www.simonstalenhag.se
