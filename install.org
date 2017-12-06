@@ -14,6 +14,12 @@ Get the certificate installer from https://cat.eduroam.org
 ** Homebrew
 https://brew.sh
 
+** Node js
+https://nodejs.org/en/
+``
+brew install node
+```
+
 * UI 
 
 ** Magnet
@@ -25,13 +31,13 @@ https://pqrs.org/osx/karabiner/
 in preferences, complex modifications, import new rules and chose
 "Change caps_lock key to command+control+option+shift. (Post escape key when pressed alone)".
 
-** Fonts
+** Style
 
 *** Fira Code
 https://github.com/tonsky/FiraCode
 
-*** Fira Code Patched (Nerd fonts)
-https://nerdfonts.com TODO:
+*** TODO Fira Code Patched (Nerd fonts)
+https://nerdfonts.com
 
 *** iTerm2 Color Schemes and Themes
 http://iterm2colorschemes.com includes monokai soda
@@ -48,7 +54,11 @@ extensions: DuckDuckGo, UBlockOrigin
 
 *** Chrome
 https://www.google.com/intl/fr/chrome/browser/desktop/index.html
-extensions: uBlockOrigin, uBO-Scope, uMatrix 
+extensions: uBlockOrigin, uBO-Scope, uMatrix
+
+*** Firefox 
+https://www.mozilla.org/fr/firefox/
+extensions: uBlockOrigin, uBO-Scope, uMatrix
 
 ** Alfred 3
 https://www.alfredapp.com
@@ -70,7 +80,7 @@ https://www.dropbox.com
 https://iterm2.com
 
 ** Oh My Zsh
-https://github.com/robbyrussell/oh-my-zsh TODO:
+https://github.com/robbyrussell/oh-my-zsh
 * Development
 
 ** IDE
@@ -98,10 +108,13 @@ python
 
 *** IntelliJ IDEA
 https://www.jetbrains.com/idea/
+https://darekkay.com/blog/monokai-theme-intellij/
 
+*** Eclipse
+Eclipse IDE for Java and DSL Developers
+https://www.eclipse.org/downloads/eclipse-packages/
 
 ** VCS
-
 *** Git
 (installed by Apple)
 .gitconfig and .gitignore_global configuration files
@@ -114,6 +127,17 @@ brew install hub
 add to ~/.bash_profile
 ```
 alias git=hub
+```
+
+*** Sourcetree
+https://www.sourcetreeapp.com
+
+*** Commitizen
+http://commitizen.github.io/cz-cli/
+```
+npm install -g commitizen
+npm install -g cz-conventional-changelog
+echo '{ "path": "cz-conventional-changelog" }' > ~/.czrc
 ```
 
 ** Build
@@ -152,6 +176,12 @@ https://kapeli.com/dash
 activate licence
 download docs
 activate the Alfred workflow in preferences/integration
+
+* Bureautique
+
+** Libre Office
+https://fr.libreoffice.org
+
 * Fun
 
 ** mps-youtube
