@@ -8,5 +8,6 @@ cp -f ~/.bashrc $DEST
 cp -f ~/.bash_profile $DEST
 cp -f ~/.zshrc $DEST
 cp -f ~/.zshenv $DEST
+cp -f ~/.czrc $DEST
 echo "Files saved to $DEST, do no forget to run git."
 
