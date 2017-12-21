@@ -105,6 +105,15 @@ https://github.com/jdberry/tag/
 ```
 brew install tag
 ```
+** file search
+https://github.com/junegunn/fzf#using-homebrew-or-linuxbrew
+https://github.com/ggreer/the_silver_searcher
+
+** tern
+```
+npm install -g tern
+```
+
 * Development
 
 ** IDE
