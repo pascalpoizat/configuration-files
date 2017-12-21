@@ -20,6 +20,16 @@ https://nodejs.org/en/
 brew install node
 ```
 
+** Gtk
+```
+brew install gtk
+brew install gtksourceview
+```
+** Autoconf / Automake
+```
+brew install autoconf
+brew install automake
+```
 * UI 
 
 ** Magnet
@@ -39,6 +49,10 @@ https://github.com/tonsky/FiraCode
 *** TODO Fira Code Patched (Nerd fonts)
 https://nerdfonts.com
 
+*** Font Awesome
+http://fontawesome.io
+*** Yanone Kaffeesatz
+https://fonts.google.com
 *** iTerm2 Color Schemes and Themes
 http://iterm2colorschemes.com includes monokai soda
 
@@ -47,6 +61,11 @@ https://github.com/lysyi3m/osx-terminal-themes includes monokai soda
 
 * System 
 
+** Servers
+*** Tomcat 8
+https://tomcat.apache.org
+install and setup $CATALINA_HOME and $PATH
+add accounts in $CATALINA_HOME/conf/tomcat-users.xml if needed
 ** Browsers
 
 *** Safari
@@ -54,11 +73,11 @@ extensions: DuckDuckGo, UBlockOrigin
 
 *** Chrome
 https://www.google.com/intl/fr/chrome/browser/desktop/index.html
-extensions: uBlockOrigin, uBO-Scope, uMatrix
+extensions: uBlockOrigin, uBO-Scope, uMatrix, https everywhere, privacy badger
 
 *** Firefox 
 https://www.mozilla.org/fr/firefox/
-extensions: uBlockOrigin, uBO-Scope, uMatrix
+extensions: uBlockOrigin, uBO-Scope, uMatrix, https everywhere, privacy badger
 
 ** Alfred 3
 https://www.alfredapp.com
@@ -81,6 +100,11 @@ https://iterm2.com
 
 ** Oh My Zsh
 https://github.com/robbyrussell/oh-my-zsh
+** OSX tag support in terminal
+https://github.com/jdberry/tag/
+```
+brew install tag
+```
 * Development
 
 ** IDE
@@ -105,6 +129,7 @@ dash, plantuml,
 TODO highlight, git history, visual studio code commitizen support,
 language support for java, java extension pack, debugger for java, 
 python
+antlr4 grammar syntax support
 
 *** IntelliJ IDEA
 https://www.jetbrains.com/idea/
@@ -151,6 +176,20 @@ echo '{ "path": "cz-conventional-changelog" }' > ~/.czrc
 http://www.oracle.com/technetwork/java/javase/downloads/index.html
 Java SE 8u152 
 
+** Ocaml
+```
+brew install ocaml
+brew install opam
+cd $HOME
+opam init
+eval `opam config env`
+opam install menhir
+opam install ocamlgraph
+opam install camlzip
+opam install lablgtk
+opam install conf-gtksourceview
+```
+
 ** Haskell
 *** Stack
 https://docs.haskellstack.org/en/stable/README/
@@ -171,16 +210,91 @@ install haskell syntax highlighting, haskell-linter, haskero, hindent format, ho
 ** Python3
 ```brew install python3```
 
+** Typescript
+http://www.typescriptlang.org
+```
+npm i -g typescript
+```
+** Visual Studio Code development
+```
+npm i -g vsce
+```
+** JS libs
+*** railroad diagrams
+```
+npm i -g railroad-diagrams
+```
+*** d3
+```
+npm i -g d3
+```
+*** antlr
+```
+brew install antlr
+npm i -g antlr4-graps
+npm i -g antlr4ts
+```
 ** Dash
 https://kapeli.com/dash
 activate licence
 download docs
 activate the Alfred workflow in preferences/integration
+** PlantUML
+http://plantuml.com
+```
+brew install plantuml
+```
+
+* Formal
+
+** Coq
+```
+brew install coq
+```
+** Z3
+```
+brew install z3
+```
+** CVC4
+```
+brew tap cvc4/cvc4
+brew install cvc4/cvc4/cvc4
+```
+** Isabelle
+http://isabelle.in.tum.de (Isabelle2017)
+```
+export PATH=$PATH:/Applications/Isabelle2017.app/Isabelle/bin
+```
+TLAPS includes Isabelle2011 but it has an issue (warning wrt Java6 missing)
+
+** Why3
+```
+opam install why3
+```
+to configure after installation of provers:
+```
+rm /Users/pascalpoizat/.why3.conf
+why3 config --detect
+```
+
+** TLA+
+http://lamport.azurewebsites.net/tla/toolbox.html#downloading
+http://tla.msr-inria.inria.fr/tlaps/content/Download/Binaries.html
+in /usr/local/lib/tlaps/bin do ````rm -f z3 ; ln -f /usr/local/bin/z3 z3``
+
+* Edition
+
+** LaTeX
+https://www.tug.org/mactex/mactex-download.html
 
 * Bureautique
 
 ** Libre Office
 https://fr.libreoffice.org
+https://extensions.libreoffice.org/extensions/libo_plantuml
+
+** Omnigraffle
+Achat via le site education puis https://www.omnigroup.com/download
 
 * Fun
 
