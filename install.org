@@ -207,7 +207,7 @@ if it begins to compile all then rather use ```curl -sSL https://get.haskellstac
 note that "The Homebrew formula and bottles are unofficial and lag slightly behind new Stack releases, but tend to be updated within a day or two.".
 install GHC using ```stack setup```
 *** Haskell tools
-install apply-refact, hlint, stylish-haskell, hasktags, hoogle, ghc-mod, intero
+install apply-refact, hlint, hindent, stylish-haskell, hasktags, hoogle, ghc-mod, intero
 this can be done using ```stack install <name>```
 all is installed in ~/.local/bin so add this to your PATH 
 *** Haskell layer for spacemacs
