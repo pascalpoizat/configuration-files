@@ -382,13 +382,14 @@ you should place your code here."
     ;; features
     (setq org-enforce-todo-dependencies t)
     (setq org-enforce-todo-checkbox-dependencies t)
+    (setq org-log-into-drawer t)
     ;; -- GTD (to update)
     ;; #+SEQ_TODO: TODO(t) STARTED(s!) WAITING(w!) | DONE(d!) CANCELLED(c!) DEFERRED(f!)
     ;; #+TAGS: { research(r) teaching(t) perso(p) } admin(a)
     ;; #+TAGS: conference registration transport housing refund
     ;; #+TAGS: article slides review
     ;; #+TAGS: learn
-    (setq org-todo-keywords '((sequence "TODO(t)" "STARTED(s!)" "WAITING(w!)" "|" "DONE(d!)" "CANCELLED(c!)" "DEFERRED(f!)")))
+    (setq org-todo-keywords '((sequence "TODO(t)" "NEXT(n!)" "STARTED(s!)" "WAITING(w!)" "|" "DONE(d!)" "CANCELLED(c!)" "DEFERRED(f!)")))
     (setq org-tag-persistent-alist
           '((:startgroup . nil)
             ("research" . ?r) ("teaching" . ?t) ("perso" . ?p)
@@ -401,9 +402,9 @@ you should place your code here."
     ;; -- capture
     (setq org-capture-templates
           '(("t" "Todo [inbox]" entry (file+headline "inbox.org" "Tasks")
-             "* TODO %i%?\n:PROPERTIES:\n:CREATED: [?]\n:FROM: ?\n:END:\n\n")
+             "* TODO %^{description}\n:PROPERTIES:\n:CREATED: %U\n:FROM: %^{from}\n:END:\n\n")
             ("n" "Note [inbox]" entry (file+headline "inbox.org" "Notes")
-             "* %i%?\n:PROPERTIES:\n:CREATED: [?]\n:FROM: ?\n:END:\n\n")))
+             "* %^{description}\n:PROPERTIES:\n:CREATED: %U\n:FROM: %^{from}\n:END:\n\n")))
     ;; -- refile
     (setq org-refile-use-outline-path 'file)
     (setq org-outline-path-complete-in-steps nil)
@@ -414,15 +415,6 @@ you should place your code here."
     ;; -- presentation
     (setq org-tags-column 0)
     (setq org-bullets-bullet-list '("■" "◆" "●" "○")) ;; '("■" "◆" "▲" "▶" "●" "○")
-    ;;(setq org-todo-keyword-faces
-    ;;      '(
-    ;;        ("TODO" . (:foreground "Red" :weight bold))
-    ;;        ("STARTED" . (:foreground "OrangeRed" :weight bold))
-    ;;        ("WAITING" . (:foreground "IndianRed1" :weight bold))
-    ;;        ("DONE" . (:foreground "LimeGreen" :weight bold))
-    ;;        ("CANCELLED" . (:foreground "LimeGreen" :weight bold))
-    ;;        ("DEFERRED" . (:foreground "LimeGreen" :weight bold))
-    ;;        ))
     )
   )
 
