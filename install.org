@@ -129,7 +129,7 @@ http://spacemacs.org
 ```git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d```
 copy configuration
 
-*** Visual Studio Code
+*** TODO Visual Studio Code
 https://code.visualstudio.
 update configuration file
 extensions:
@@ -139,6 +139,8 @@ TODO highlight, git history, visual studio code commitizen support,
 language support for java, java extension pack, debugger for java, 
 python
 antlr4 grammar syntax support
+latex workshop, code spell checker + french add on
+TODO: experiment language tool
 
 *** IntelliJ IDEA
 https://www.jetbrains.com/idea/
