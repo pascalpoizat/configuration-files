@@ -366,22 +366,26 @@ you should place your code here."
   ;; trash     -> not kept
   ;; someday   -> someday.org
   ;; reference -> reference.org
-  ;; gtd       -> gtd.org
+  ;; gtd       -> gtd.org (work)
+  ;;           -> personal.org (personal)
   ;; archives  -> filename with _archive added to it
   (with-eval-after-load 'org
     (setq org-directory (expand-file-name "~/Dropbox/ORGMODE"))
     (setq org-default-notes-file (concat org-directory "inbox.org"))
     (setq org-agenda-files '("~/Dropbox/ORGMODE/inbox.org"
-                             "~/Dropbox/ORGMODE/gtd.org"))
+                             "~/Dropbox/ORGMODE/gtd.org"
+                             "~/Dropbox/ORGMODE/personal.org"))
     (setq org-mobile-directory "~/Dropbox/Applications/MobileOrg")
     (setq org-mobile-inbox-for-pull "~/Dropbox/ORGMODE/inbox.org")
     (setq org-mobile-files '("~/Dropbox/ORGMODE/inbox.org" ;; already in org-agenda-files
                              "~/Dropbox/ORGMODE/gtd.org" ;; already in org-agenda-files
+                             "~/Dropbox/ORGMODE/personal.org" ;; already in org-agenda-files
                              "~/Dropbox/ORGMODE/reference.org"
                              "~/Dropbox/ORGMODE/someday.org"))
     ;; features
     (setq org-enforce-todo-dependencies t)
     (setq org-enforce-todo-checkbox-dependencies t)
+    (setq org-track-ordered-property-with-tag t)
     (setq org-log-into-drawer t)
     ;; -- GTD (to update)
     ;; #+SEQ_TODO: TODO(t) STARTED(s!) WAITING(w!) | DONE(d!) CANCELLED(c!) DEFERRED(f!)
@@ -389,7 +393,7 @@ you should place your code here."
     ;; #+TAGS: conference registration transport housing refund
     ;; #+TAGS: article slides review
     ;; #+TAGS: learn
-    (setq org-todo-keywords '((sequence "TODO(t)" "NEXT(n!)" "STARTED(s!)" "WAITING(w!)" "|" "DONE(d!)" "CANCELLED(c!)" "DEFERRED(f!)")))
+    (setq org-todo-keywords '((sequence "TODO(t)" "PROJECT(p)" "NEXT(n!)" "STARTED(s!)" "WAITING(w!)" "|" "DONE(d!)" "CANCELLED(c!)" "DEFERRED(f!)")))
     (setq org-tag-persistent-alist
           '((:startgroup . nil)
             ("research" . ?r) ("teaching" . ?t) ("perso" . ?p)
@@ -404,12 +408,17 @@ you should place your code here."
           '(("t" "Todo [inbox]" entry (file+headline "inbox.org" "Tasks")
              "* TODO %^{description}\n:PROPERTIES:\n:CREATED: %U\n:FROM: %^{from}\n:END:\n\n")
             ("n" "Note [inbox]" entry (file+headline "inbox.org" "Notes")
-             "* %^{description}\n:PROPERTIES:\n:CREATED: %U\n:FROM: %^{from}\n:END:\n\n")))
+             "* %^{description}\n:PROPERTIES:\n:CREATED: %U\n:FROM: %^{from}\n:END:\n\n")
+            ("c" "Conference [inbox]" entry (file+headline "inbox.org" "Tasks")
+             (file "templates/conference.org.txt"))
+            )
+          )
     ;; -- refile
     (setq org-refile-use-outline-path 'file)
     (setq org-outline-path-complete-in-steps nil)
     (setq org-reverse-note-order t)
     (setq org-refile-targets '(("~/Dropbox/ORGMODE/gtd.org" :maxlevel . 2)
+                               ("~/Dropbox/ORGMODE/personal.org" :maxlevel . 2)
                                ("~/Dropbox/ORGMODE/someday.org" :level . 1)
                                ("~/Dropbox/ORGMODE/reference.org" :level . 1)))
     ;; -- presentation
