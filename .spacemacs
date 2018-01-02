@@ -146,8 +146,7 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(monokai
-                         spacemacs-dark
-                         spacemacs-light)
+                        spacemacs-light)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
@@ -341,10 +340,13 @@ you should place your code here."
             (lambda () (set (make-local-variable 'mouse-1-click-follows-link) nil)))
   ;; flycheck pop-up (pos-tip) bug on osx
   (setq flycheck-display-errors-function 'flycheck-display-error-messages-unless-error-list)
+  ;; separate quit / quit + kill deamon
+  ;; see https://medium.com/@bobbypriambodo/blazingly-fast-spacemacs-with-persistent-server-92260f2118b7
+  (evil-leader/set-key "q q" 'spacemacs/frame-killer)
   ;; powerline
   (setq powerline-default-separator 'roundstub)
   ;; fira code font
-
+  ;; (nothing) 
   ;; haskell
   (add-hook 'haskell-mode-hook
             'turn-on-haskell-indentation)
@@ -387,8 +389,11 @@ you should place your code here."
     (setq org-enforce-todo-checkbox-dependencies t)
     (setq org-track-ordered-property-with-tag t)
     (setq org-log-into-drawer t)
+    (setq org-clock-into-drawer "CLOCKING")
+    (setq org-checkbox-hierarchical-statistics nil)
+    (setq org-hierarchical-todo-statistics nil)
     ;; -- GTD (to update)
-    ;; #+SEQ_TODO: TODO(t) STARTED(s!) WAITING(w!) | DONE(d!) CANCELLED(c!) DEFERRED(f!)
+    ;; #+SEQ_TODO: TODO(t) PROJECT(p) NEXT(n!) STARTED(s!) WAITING(w!) | DONE(d!) CANCELLED(c!) DEFERRED(f!)
     ;; #+TAGS: { research(r) teaching(t) perso(p) } admin(a)
     ;; #+TAGS: conference registration transport housing refund
     ;; #+TAGS: article slides review
@@ -417,7 +422,7 @@ you should place your code here."
     (setq org-refile-use-outline-path 'file)
     (setq org-outline-path-complete-in-steps nil)
     (setq org-reverse-note-order t)
-    (setq org-refile-targets '(("~/Dropbox/ORGMODE/gtd.org" :maxlevel . 2)
+    (setq org-refile-targets '(("~/Dropbox/ORGMODE/gtd.org" :maxlevel . 4)
                                ("~/Dropbox/ORGMODE/personal.org" :maxlevel . 2)
                                ("~/Dropbox/ORGMODE/someday.org" :level . 1)
                                ("~/Dropbox/ORGMODE/reference.org" :level . 1)))
@@ -434,8 +439,8 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector
-   ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
+;; '(ansi-color-names-vector
+;;   ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
  '(package-selected-packages
    (quote
     (ghub let-alist web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode yaml-mode rainbow-mode rainbow-identifiers color-identifiers-mode company-auctex auctex-latexmk auctex helm-dash dash-at-point org-category-capture mu4e-maildirs-extension mu4e-alert sass-mode company-web web-mode tagedit slim-mode scss-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode web-completion-data org-projectile org-present org-pomodoro alert log4e gntp org-download htmlize gnuplot markdown-toc mmm-mode markdown-mode gh-md smeargle orgit magit-gitflow magit-gh-pulls helm-gitignore gitignore-mode github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gist gh marshal logito pcache ht evil-magit magit magit-popup git-commit with-editor helm-company helm-c-yasnippet fuzzy flycheck-pos-tip pos-tip flycheck-haskell company-statistics company-cabal auto-yasnippet ac-ispell auto-complete intero flycheck hlint-refactor hindent helm-hoogle haskell-snippets yasnippet company-ghci company-ghc ghc company haskell-mode cmm-mode ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
@@ -444,4 +449,5 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((((class color) (min-colors 257)) (:foreground "#F8F8F2" :background "#272822")) (((class color) (min-colors 89)) (:foreground "#F5F5F5" :background "#1B1E1C")))))
+;; '(default ((((class color) (min-colors 257)) (:foreground "#F8F8F2" :background "#272822")) (((class color) (min-colors 89)) (:foreground "#F5F5F5" :background "#1B1E1C"))))
+ )
