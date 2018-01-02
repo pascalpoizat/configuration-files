@@ -118,6 +118,8 @@ npm install -g tern
 
 ** IDE
 
+*** Macdown
+    ```brew cask install macdown```
 *** Emacs / Spacemacs
 https://www.emacswiki.org/emacs/EmacsForMacOS
 https://github.com/d12frosted/homebrew-emacs-plus
