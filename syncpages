@@ -7,7 +7,7 @@ export EXCLUDEFILE=$HOME/rsync_exclude_file.txt
 mkdir -p ${VOLUME} ; mount_webdav -i -s ${DIST} ${VOLUME}
 
 echo "updating web pages from ${PAGES} to ${DIST}..."
-rsync -c -r -v --exclude-from ${EXCLUDEFILE} ${PAGEROOT}/src/_site/ ${VOLUME}/
+rsync -c -r -v --exclude-from ${EXCLUDEFILE} ${PAGES}/src/_site/ ${VOLUME}/
 echo "... done"
 
 umount ${VOLUME}
