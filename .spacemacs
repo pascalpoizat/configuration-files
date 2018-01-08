@@ -323,7 +323,31 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq-default
    ;; if `nil' then the right alt key of the mac is left unchanged
    mac-right-option-modifier nil
-  ))
+   ))
+
+;;
+;; orgmode
+;; from https://koenig-haunstetten.de/2016/07/09/code-snippet-for-orgmode-e05s02/
+;;
+(defun my/org-add-ids-to-headlines-in-file ()
+  "Add ID properties to all headlines in the current file which do not already have one."
+  (interactive)
+  (org-map-entries 'org-id-get-create))
+
+(defun my/copy-id-to-clipboard()
+  "Copy the ID property value to killring, if no ID is there then create a new unique ID.
+   This function works only in org-mode buffers.
+   The purpose of this function is to easily construct id:-links to org-mode items.
+   If its assigned to a key it saves you marking the text and copying to the killring."
+  (interactive)
+  (when (eq major-mode 'org-mode) ; do this only in org-mode buffers
+    (setq mytmpid (funcall 'org-id-get-create))
+    (kill-new mytmpid)
+    (message "Copied %s to killring (clipboard)" mytmpid)
+    ))
+
+(global-set-key (kbd "<f5>") 'my/copy-id-to-clipboard)
+
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -355,6 +379,11 @@ you should place your code here."
   (add-to-list 'exec-path "~/.local/bin/")
   (with-eval-after-load 'intero
     (flycheck-add-next-checker 'intero '(warning . haskell-hlint)))
+  ;;
+  ;; time related
+  ;;
+  ;; simple version
+  (display-time-mode 1)
   ;;
   ;; orgmode
   ;;
@@ -398,9 +427,10 @@ you should place your code here."
     ;; #+TAGS: conference registration transport housing refund
     ;; #+TAGS: article slides review
     ;; #+TAGS: learn
-    (setq org-todo-keywords '((sequence "TODO(t)" "PROJECT(p)" "NEXT(n!)" "STARTED(s!)" "WAITING(w!)" "|" "DONE(d!)" "CANCELLED(c!)" "DEFERRED(f!)")))
+    (setq org-todo-keywords '((sequence "TODO(t)" "PROJECT(p)" "NEXT(n!)" "STARTED(s!)" "WAITING(w!)" "SPECIAL(x)" "|" "DONE(d!)" "CANCELLED(c!)" "DEFERRED(f!)")))
     (setq org-tag-persistent-alist
-          '((:startgroup . nil)
+          '(("URGENT" . ?u)
+            (:startgroup . nil)
             ("research" . ?r) ("teaching" . ?t) ("perso" . ?p)
             (:endgroup . nil)
             ("admin" . ?a)
@@ -411,9 +441,9 @@ you should place your code here."
     ;; -- capture
     (setq org-capture-templates
           '(("t" "Todo [inbox]" entry (file+headline "inbox.org" "Tasks")
-             "* TODO %^{description}\n:PROPERTIES:\n:CREATED: %U\n:FROM: %^{from}\n:END:\n\n")
+             "* TODO %^{description}\n:PROPERTIES:\n:CREATED: %U\n:END:\n\n")
             ("n" "Note [inbox]" entry (file+headline "inbox.org" "Notes")
-             "* %^{description}\n:PROPERTIES:\n:CREATED: %U\n:FROM: %^{from}\n:END:\n\n")
+             "* %^{description}\n:PROPERTIES:\n:CREATED: %U\n:END:\n\n")
             ("c" "Conference [inbox]" entry (file+headline "inbox.org" "Tasks")
              (file "templates/conference.org.txt"))
             )
@@ -423,12 +453,36 @@ you should place your code here."
     (setq org-outline-path-complete-in-steps nil)
     (setq org-reverse-note-order t)
     (setq org-refile-targets '(("~/Dropbox/ORGMODE/gtd.org" :maxlevel . 4)
-                               ("~/Dropbox/ORGMODE/personal.org" :maxlevel . 2)
-                               ("~/Dropbox/ORGMODE/someday.org" :level . 1)
-                               ("~/Dropbox/ORGMODE/reference.org" :level . 1)))
+                               ("~/Dropbox/ORGMODE/personal.org" :maxlevel . 4)
+                               ("~/Dropbox/ORGMODE/someday.org" :level . 4)
+                               ("~/Dropbox/ORGMODE/reference.org" :level . 4)))
     ;; -- presentation
     (setq org-tags-column 0)
-    (setq org-bullets-bullet-list '("■" "◆" "●" "○")) ;; '("■" "◆" "▲" "▶" "●" "○")
+    (setq org-bullets-bullet-list '("■" "◆" "●" "○" "-")) ;; '("■" "◆" "▲" "▶" "●" "○")
+    ;; -- agenda
+    (setq org-agenda-custom-commands
+          (quote
+           (
+            ;; overview
+            ("z" "Overview for today"
+             (
+              (tags-todo "URGENT"
+                         ((org-agenda-overriding-header "Urgent Tasks")
+                          (org-agenda-files
+                           '("~/Dropbox/ORGMODE/inbox.org" "~/Dropbox/ORGMODE/gtd.org" "~/Dropbox/ORGMODE/personal.org"))))
+              (agenda ""
+                      ((org-agenda-overriding-header "Today")
+                       (org-agenda-files
+                        '("~/Dropbox/ORGMODE/inbox.org" "~/Dropbox/ORGMODE/gtd.org" "~/Dropbox/ORGMODE/personal.org"))
+                       (org-agenda-span 1)
+                       (org-agenda-sorting-strategy '(time-up priority-down))))
+              ))
+            ;; end overview
+            )))
+    ;;
+    (add-hook 'org-mode-hook
+              (lambda () (add-hook 'before-save-hook 'my/org-add-ids-to-headlines-in-file nil 'local)))
+    ;;
     )
   )
 
