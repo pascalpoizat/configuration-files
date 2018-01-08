@@ -1,6 +1,12 @@
 * Install first
+  :PROPERTIES:
+  :ID:       551E18B2-42F3-422F-AD3C-5A47FF786734
+  :END:
 
 ** Aliases
+   :PROPERTIES:
+   :ID:       42E7714D-DBCC-478C-BD6C-D1DDA262B640
+   :END:
 add to ~/.bash_profile
 ```
 alias rm='rm -i'
@@ -8,78 +14,152 @@ alias cp='cp -i'
 alias mv='mv -i'
 ``
 ** Eduroam
+   :PROPERTIES:
+   :ID:       A6FA24BF-0E8C-45E9-B638-47B7CC3CD401
+   :END:
 http://www.eduroam.fr
 Get the certificate installer from https://cat.eduroam.org
 
 ** Homebrew
+   :PROPERTIES:
+   :ID:       8F85DD06-399F-45F0-8789-19A5C966792D
+   :END:
 https://brew.sh
 
 ** Node js
+   :PROPERTIES:
+   :ID:       94BE5CCB-ECC4-4DA4-9D30-C7A2DBEF4DA6
+   :END:
 https://nodejs.org/en/
 ``
 brew install node
 ```
 
-** Gtk
-```
-brew install gtk
-brew install gtksourceview
-```
+** Ruby
+   :PROPERTIES:
+   :ID:       40B4B235-5468-4071-AA82-CB5066F98ED3
+   :END:
+   ruby and gem pre-installed on OSX
 ** Autoconf / Automake
+   :PROPERTIES:
+   :ID:       D6566725-A104-4444-B336-86B2AC1CA40F
+   :END:
 ```
 brew install autoconf
 brew install automake
 ```
 * UI 
+  :PROPERTIES:
+  :ID:       891BE4BF-A32B-4405-944D-04072180CC38
+  :END:
 
+** Gtk
+   :PROPERTIES:
+   :ID:       2B7C34C9-CCEC-4BEC-85D3-BAFF1C47E116
+   :END:
+```
+brew install gtk
+brew install gtksourceview
+```
 ** Magnet
+   :PROPERTIES:
+   :ID:       3B9B6660-6181-4792-A3BD-52C1ABF812A3
+   :END:
 http://magnet.crowdcafe.com
 available on the apple store
 
 ** Karabiner
+   :PROPERTIES:
+   :ID:       CA6B134F-C20B-4230-9583-92D86ADC837E
+   :END:
 https://pqrs.org/osx/karabiner/
 in preferences, complex modifications, import new rules and chose
 "Change caps_lock key to command+control+option+shift. (Post escape key when pressed alone)".
 
 ** Style
+   :PROPERTIES:
+   :ID:       020A923A-1B65-4CD6-B145-5E6C525607DF
+   :END:
 
 *** Fira Code
+    :PROPERTIES:
+    :ID:       CABF5F27-F0D3-41FF-9764-FA99960959E9
+    :END:
 https://github.com/tonsky/FiraCode
 
 *** TODO Fira Code Patched (Nerd fonts)
+    :PROPERTIES:
+    :ID:       2742249E-A493-4467-9EEE-14E983560032
+    :END:
 https://nerdfonts.com
 
 *** Font Awesome
+    :PROPERTIES:
+    :ID:       E7F20963-C3C2-4A4D-A5E7-5288716ACB93
+    :END:
 http://fontawesome.io
 *** Yanone Kaffeesatz
+    :PROPERTIES:
+    :ID:       28650D78-3DE6-4F8E-AFD3-7D513DFC38C0
+    :END:
 https://fonts.google.com
 *** iTerm2 Color Schemes and Themes
+    :PROPERTIES:
+    :ID:       621C9522-0693-4675-A130-5B80F49EF348
+    :END:
 http://iterm2colorschemes.com includes monokai soda
 
 *** Terminal Color Schemes
+    :PROPERTIES:
+    :ID:       C7E8695D-DBA0-4F9F-9DAF-FE1FE9D95C1D
+    :END:
 https://github.com/lysyi3m/osx-terminal-themes includes monokai soda
 
 * System 
+  :PROPERTIES:
+  :ID:       B6DEE1F5-2ADD-4307-9CBE-EB093FCB8650
+  :END:
 
 ** Servers
+   :PROPERTIES:
+   :ID:       7023B86E-7F63-49EE-BFB6-9070B4D10681
+   :END:
 *** Tomcat 8
+    :PROPERTIES:
+    :ID:       6E9AAFB6-46FE-4CF4-94D4-E1311A4279FE
+    :END:
 https://tomcat.apache.org
 install and setup $CATALINA_HOME and $PATH
 add accounts in $CATALINA_HOME/conf/tomcat-users.xml if needed
 ** Browsers
+   :PROPERTIES:
+   :ID:       AE82FC8A-7DA5-4201-BD16-701AE7D69C38
+   :END:
 
 *** Safari
+    :PROPERTIES:
+    :ID:       C135F0D0-33E2-4D6B-BE40-E6084121356F
+    :END:
 extensions: DuckDuckGo, UBlockOrigin
 
 *** Chrome
+    :PROPERTIES:
+    :ID:       A391C4E7-4BC8-4778-B3E7-83492247BD9C
+    :END:
 https://www.google.com/intl/fr/chrome/browser/desktop/index.html
 extensions: uBlockOrigin, uBO-Scope, uMatrix, https everywhere, privacy badger
 
 *** Firefox 
+    :PROPERTIES:
+    :ID:       F1BE8CE7-9DD5-4E3D-9445-4943A33068A1
+    :END:
 https://www.mozilla.org/fr/firefox/
 extensions: uBlockOrigin, uBO-Scope, uMatrix, https everywhere, privacy badger
 
 ** Alfred 3
+   :PROPERTIES:
+   :ID:       4D041E50-32B3-44D3-B829-E64A953C7E02
+   :END:
 https://www.alfredapp.com
 a simple version is available on the apple store but for powerpack the web site version is required
 activate powerpack
@@ -87,40 +167,85 @@ add Dash workflow (see Dash)
 add StackOverflow workflow https://github.com/deanishe/alfred-stackoverflow
 add GitHub workflow (a github auth token will be required)
 ** Dropbox
+   :PROPERTIES:
+   :ID:       1CA48597-F903-449A-AE8F-2F30896392E7
+   :END:
 https://www.dropbox.com
 
 ** Command Line Tools for Xcode
+   :PROPERTIES:
+   :ID:       65FA8173-C3CC-468D-8060-D8345AF0ACEF
+   :END:
 (installed when installing Homebrew)
 
 ** Zsh
+   :PROPERTIES:
+   :ID:       46BBC570-26B2-4992-AA70-12BDBA4D487C
+   :END:
 (installed by Apple)
 
 ** iTerm2
+   :PROPERTIES:
+   :ID:       34475225-CEFC-451F-868A-FCC9E463227E
+   :END:
 https://iterm2.com
 
 ** Oh My Zsh
+   :PROPERTIES:
+   :ID:       4C0E4845-A7C6-4CCC-912E-1FFCACB6D86C
+   :END:
 https://github.com/robbyrussell/oh-my-zsh
 ** OSX tag support in terminal
+   :PROPERTIES:
+   :ID:       E65CFD10-4320-4197-87E0-EAC9D36AB1F8
+   :END:
 https://github.com/jdberry/tag/
 ```
 brew install tag
 ```
 ** file search
+   :PROPERTIES:
+   :ID:       1D9C3FB0-D085-4A4A-A636-501C49F143D1
+   :END:
 https://github.com/junegunn/fzf#using-homebrew-or-linuxbrew
 https://github.com/ggreer/the_silver_searcher
 
 ** tern
+   :PROPERTIES:
+   :ID:       0F497F14-8123-4D8D-8762-E60EE3B49C0B
+   :END:
 ```
 npm install -g tern
 ```
 
+** Jekyll
+   :PROPERTIES:
+   :ID:       CE63AA15-6AFA-4627-B596-F5B1CED8B538
+   :END:
+   ```
+   sudo gem install jekyll bundler
+   ```
+   note: when in a Jekyll project, one may have to run ```bundle install``` to install missing gems.
+   note: in case of a problem with nokogiri, read https://stackoverflow.com/questions/24091869/installing-nokogiri-on-osx-10-10-yosemite
 * Development
+  :PROPERTIES:
+  :ID:       0348B28A-FD9B-4798-BC6A-2DE033C3D08C
+  :END:
 
 ** IDE
+   :PROPERTIES:
+   :ID:       BAE4E90D-6C84-4AC4-9505-2356B1118184
+   :END:
 
 *** Macdown
+    :PROPERTIES:
+    :ID:       A05BE607-6F8B-4ACD-BA3B-293269D7645A
+    :END:
     ```brew cask install macdown```
 *** Emacs / Spacemacs
+    :PROPERTIES:
+    :ID:       41FB041C-B277-4416-A197-2EA4C9EED84C
+    :END:
 https://www.emacswiki.org/emacs/EmacsForMacOS
 https://github.com/d12frosted/homebrew-emacs-plus
 ```
@@ -132,6 +257,9 @@ http://spacemacs.org
 copy configuration
 
 *** TODO Visual Studio Code
+    :PROPERTIES:
+    :ID:       6F835014-B56A-4051-A40E-AD2BD2CE78DF
+    :END:
 https://code.visualstudio.
 update configuration file
 extensions:
@@ -145,19 +273,34 @@ latex workshop, code spell checker + french add on
 TODO: experiment language tool
 
 *** IntelliJ IDEA
+    :PROPERTIES:
+    :ID:       F9F58C52-8C65-475F-A0E0-25692E410E76
+    :END:
 https://www.jetbrains.com/idea/
 https://darekkay.com/blog/monokai-theme-intellij/
 
 *** Eclipse
+    :PROPERTIES:
+    :ID:       DD85E82E-9259-4E63-9AC2-E5EA9670ECC3
+    :END:
 Eclipse IDE for Java and DSL Developers
 https://www.eclipse.org/downloads/eclipse-packages/
 
 ** VCS
+   :PROPERTIES:
+   :ID:       1C7067B8-5F79-466C-833A-D22C9457D530
+   :END:
 *** Git
+    :PROPERTIES:
+    :ID:       7D8BA40F-1BFA-4E1F-829D-D21604A3A960
+    :END:
 (installed by Apple)
 .gitconfig and .gitignore_global configuration files
 
 *** Hub
+    :PROPERTIES:
+    :ID:       799E235E-DCC0-4F1F-9473-11ED728C169C
+    :END:
 ```
 brew install hub
 
@@ -168,9 +311,15 @@ alias git=hub
 ```
 
 *** Sourcetree
+    :PROPERTIES:
+    :ID:       682FC8C0-89CA-4C61-BAA1-7B105AC5BF05
+    :END:
 https://www.sourcetreeapp.com
 
 *** Commitizen
+    :PROPERTIES:
+    :ID:       F392C85F-4CB7-43C8-95E7-704341ABEE00
+    :END:
 http://commitizen.github.io/cz-cli/
 ```
 npm install -g commitizen
@@ -179,17 +328,32 @@ echo '{ "path": "cz-conventional-changelog" }' > ~/.czrc
 ```
 
 ** Build
+   :PROPERTIES:
+   :ID:       F784C008-A6DF-4F77-BC95-F1EB5D111BD6
+   :END:
 *** Gradle
+    :PROPERTIES:
+    :ID:       8F02DD14-8CF8-4885-8440-F28111C50146
+    :END:
 ```brew install gradle```
 
 *** Maven
+    :PROPERTIES:
+    :ID:       0A8D8CA4-03B2-4C74-9FB2-CEA25DAE5B40
+    :END:
 ```brew install maven```
 
 ** Java
+   :PROPERTIES:
+   :ID:       445A88EE-02F5-4B45-B634-2F691A43C95F
+   :END:
 http://www.oracle.com/technetwork/java/javase/downloads/index.html
 Java SE 8u152 
 
 ** Ocaml
+   :PROPERTIES:
+   :ID:       C5DFE343-14CA-422D-B96D-F68A359A788A
+   :END:
 ```
 brew install ocaml
 brew install opam
@@ -204,76 +368,133 @@ opam install conf-gtksourceview
 ```
 
 ** Haskell
+   :PROPERTIES:
+   :ID:       07404342-F9E8-4947-8523-ADF42CE87264
+   :END:
 *** Stack
+    :PROPERTIES:
+    :ID:       B571F1F6-9814-4A32-8A1F-7DF45C9BA04E
+    :END:
 https://docs.haskellstack.org/en/stable/README/
 try ```brew install haskell-stack```
 if it begins to compile all then rather use ```curl -sSL https://get.haskellstack.org/ | sh```
 note that "The Homebrew formula and bottles are unofficial and lag slightly behind new Stack releases, but tend to be updated within a day or two.".
 install GHC using ```stack setup```
 *** Haskell tools
+    :PROPERTIES:
+    :ID:       EB8CB7A9-3D0D-4B35-BD0A-A0CC1102BCF7
+    :END:
 install apply-refact, hlint, hindent, stylish-haskell, hasktags, hoogle, ghc-mod, intero
 this can be done using ```stack install <name>```
 all is installed in ~/.local/bin so add this to your PATH 
 *** Haskell layer for spacemacs
+    :PROPERTIES:
+    :ID:       57BE0BB9-11AD-455C-A195-D61392309EA0
+    :END:
 http://spacemacs.org/layers/+lang/haskell/README.html
 see spacemacs configuration file
 *** Haskell for Visual Studio Code
+    :PROPERTIES:
+    :ID:       C6EE8C03-DE54-4C16-8B4D-343B80E29299
+    :END:
 https://marketplace.visualstudio.com/items?itemName=Vans.haskero
 install haskell syntax highlighting, haskell-linter, haskero, hindent format, hoogle-vscode, stylish-haskell,
 ** Python3
+   :PROPERTIES:
+   :ID:       44FC4058-9F9E-459A-B488-281161A7065E
+   :END:
 ```brew install python3```
 
 ** Typescript
+   :PROPERTIES:
+   :ID:       0CF12C0A-3BAD-4066-8D96-2F6382D59EC5
+   :END:
 http://www.typescriptlang.org
 ```
 npm i -g typescript
 ```
 ** Visual Studio Code development
+   :PROPERTIES:
+   :ID:       8175A9A0-B844-432D-9F20-DB0AB9C472D1
+   :END:
 ```
 npm i -g vsce
 ```
 ** JS libs
+   :PROPERTIES:
+   :ID:       A4E9A261-E1D3-4978-8DD0-C9EA1D188BA9
+   :END:
 *** railroad diagrams
+    :PROPERTIES:
+    :ID:       18314689-37C6-4461-80DE-41A3EE5E1B77
+    :END:
 ```
 npm i -g railroad-diagrams
 ```
 *** d3
+    :PROPERTIES:
+    :ID:       B2818BE0-08CC-438B-ACFF-7D14096F274B
+    :END:
 ```
 npm i -g d3
 ```
 *** antlr
+    :PROPERTIES:
+    :ID:       90A9FE48-9447-48A9-A3D7-16224C70FAF3
+    :END:
 ```
 brew install antlr
 npm i -g antlr4-graps
 npm i -g antlr4ts
 ```
 ** Dash
+   :PROPERTIES:
+   :ID:       F0CC925C-3678-4F9F-8525-49B29723EDF2
+   :END:
 https://kapeli.com/dash
 activate licence
 download docs
 activate the Alfred workflow in preferences/integration
 ** PlantUML
+   :PROPERTIES:
+   :ID:       1C918CE0-DAF1-4709-A122-4FEFE434FEA5
+   :END:
 http://plantuml.com
 ```
 brew install plantuml
 ```
 
 * Formal
+  :PROPERTIES:
+  :ID:       A8F32837-F41D-41C8-88A6-8D5F24F9EE35
+  :END:
 
 ** Coq
+   :PROPERTIES:
+   :ID:       13576DDD-FADC-497F-8709-BF097BB531A6
+   :END:
 ```
 brew install coq
 ```
 ** Z3
+   :PROPERTIES:
+   :ID:       4DEE7B06-0A2B-4BDC-8ECF-5CD58610375E
+   :END:
 ```
 brew install z3
 ```
 ** CVC4
+   :PROPERTIES:
+   :ID:       847D4E97-84F8-4D3C-836A-2B29F646D31C
+   :END:
 ```
 brew tap cvc4/cvc4
 brew install cvc4/cvc4/cvc4
 ```
 ** Isabelle
+   :PROPERTIES:
+   :ID:       5A762924-821E-40D2-A654-844C3F36B9D8
+   :END:
 http://isabelle.in.tum.de (Isabelle2017)
 ```
 export PATH=$PATH:/Applications/Isabelle2017.app/Isabelle/bin
@@ -281,6 +502,9 @@ export PATH=$PATH:/Applications/Isabelle2017.app/Isabelle/bin
 TLAPS includes Isabelle2011 but it has an issue (warning wrt Java6 missing)
 
 ** Why3
+   :PROPERTIES:
+   :ID:       B92C2B0E-7E66-457E-9E38-D3D40A1516C9
+   :END:
 ```
 opam install why3
 ```
@@ -291,28 +515,55 @@ why3 config --detect
 ```
 
 ** TLA+
+   :PROPERTIES:
+   :ID:       6800B1EA-77F1-4674-888B-47EB628E65AD
+   :END:
 http://lamport.azurewebsites.net/tla/toolbox.html#downloading
 http://tla.msr-inria.inria.fr/tlaps/content/Download/Binaries.html
 in /usr/local/lib/tlaps/bin do ````rm -f z3 ; ln -f /usr/local/bin/z3 z3``
 
 * Edition
+  :PROPERTIES:
+  :ID:       85799D9D-A7DA-4701-AC4C-FF0BE5201A83
+  :END:
 
 ** LaTeX
+   :PROPERTIES:
+   :ID:       41D55C6F-CCF8-4364-A177-017458B2C540
+   :END:
 https://www.tug.org/mactex/mactex-download.html
 
 * Bureautique
+  :PROPERTIES:
+  :ID:       716ADC57-A6D0-4BB6-82BB-B1E89A4E0E53
+  :END:
 
 ** Libre Office
+   :PROPERTIES:
+   :ID:       F161A2CC-E7BC-4D21-9808-A5675A6784A6
+   :END:
 https://fr.libreoffice.org
 https://extensions.libreoffice.org/extensions/libo_plantuml
 
 ** Omnigraffle
+   :PROPERTIES:
+   :ID:       EB26DCC8-72EA-4C9F-B66A-CBD069B3452D
+   :END:
 Achat via le site education puis https://www.omnigroup.com/download
 
 * Fun
+  :PROPERTIES:
+  :ID:       BA68D0A2-A35D-4FD3-9DD4-57E8FDD0F464
+  :END:
 
 ** mps-youtube
+   :PROPERTIES:
+   :ID:       21037F01-7229-476F-A0A5-AC5B993D5519
+   :END:
 https://github.com/mps-youtube/mps-youtube
 
 ** wallpapers
+   :PROPERTIES:
+   :ID:       ADEAA9F4-F6ED-4C35-99FC-0A7A08A61075
+   :END:
 http://www.simonstalenhag.se
