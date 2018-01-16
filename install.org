@@ -54,6 +54,11 @@ brew install automake
   :ID:       891BE4BF-A32B-4405-944D-04072180CC38
   :END:
 
+** Amphetamine
+   :PROPERTIES:
+   :ID:       0E8E35CD-0AAF-4D32-BE87-5D3C5E819F91
+   :END:
+   from the app store
 ** Gtk
    :PROPERTIES:
    :ID:       2B7C34C9-CCEC-4BEC-85D3-BAFF1C47E116
@@ -168,6 +173,7 @@ activate powerpack
 add Dash workflow (see Dash)
 add StackOverflow workflow https://github.com/deanishe/alfred-stackoverflow
 add GitHub workflow (a github auth token will be required)
+add https://github.com/gharlan/alfred-github-workflow
 ** Dropbox
    :PROPERTIES:
    :ID:       1CA48597-F903-449A-AE8F-2F30896392E7
