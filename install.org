@@ -227,6 +227,16 @@ npm install -g tern
    ```
    note: when in a Jekyll project, one may have to run ```bundle install``` to install missing gems.
    note: in case of a problem with nokogiri, read https://stackoverflow.com/questions/24091869/installing-nokogiri-on-osx-10-10-yosemite
+** GPG
+   :PROPERTIES:
+   :ID:       C3B4543B-A53B-4044-B7D3-A01B3DA216A2
+   :END:
+   https://gpgtools.org
+** Keybase
+   :PROPERTIES:
+   :ID:       C7ACF4EF-A9DB-4115-B7B7-95887B873531
+   :END:
+   https://keybase.io/docs/the_app/install_macos
 * Development
   :PROPERTIES:
   :ID:       0348B28A-FD9B-4798-BC6A-2DE033C3D08C
