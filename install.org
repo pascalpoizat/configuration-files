@@ -24,7 +24,8 @@ Get the certificate installer from https://cat.eduroam.org
    :PROPERTIES:
    :ID:       8F85DD06-399F-45F0-8789-19A5C966792D
    :END:
-https://brew.sh
+   https://brew.sh
+   and then add cask with ```brew tap caskroom/cask```
 
 ** Node js
    :PROPERTIES:
