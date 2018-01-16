@@ -62,12 +62,13 @@ brew install automake
 brew install gtk
 brew install gtksourceview
 ```
-** Magnet
+** Window position / resize system
    :PROPERTIES:
    :ID:       3B9B6660-6181-4792-A3BD-52C1ABF812A3
    :END:
-http://magnet.crowdcafe.com
-available on the apple store
+   http://magnet.crowdcafe.com
+   available on the apple store (pay)
+   https://www.spectacleapp.com (donation)
 
 ** Karabiner
    :PROPERTIES:
