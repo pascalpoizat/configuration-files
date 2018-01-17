@@ -245,6 +245,10 @@ npm install -g tern
    :ID:       C7ACF4EF-A9DB-4115-B7B7-95887B873531
    :END:
    https://keybase.io/docs/the_app/install_macos
+   https://www.docker.com/community-edition
+   it seems there is also a solution with homebrew + others, see
+   https://penandpants.com/2014/03/09/docker-via-homebrew/
+   https://nickcharlton.net/posts/docker-via-homebrew.html
 * Development
   :PROPERTIES:
   :ID:       0348B28A-FD9B-4798-BC6A-2DE033C3D08C
