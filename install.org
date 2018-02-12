@@ -54,6 +54,13 @@ brew install node
 brew install autoconf
 brew install automake
 ```
+** wget 
+   :PROPERTIES:
+   :ID:       EA39A9E3-FF87-4DC0-8AE4-F16AB5DF67C7
+   :END:
+   #+BEGIN_SRC shell
+   brew install wget
+   #+END_SRC
 * UI 
   :PROPERTIES:
   :ID:       891BE4BF-A32B-4405-944D-04072180CC38
