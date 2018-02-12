@@ -579,7 +579,14 @@ in /usr/local/lib/tlaps/bin do ````rm -f z3 ; ln -f /usr/local/bin/z3 z3``
    :PROPERTIES:
    :ID:       41D55C6F-CCF8-4364-A177-017458B2C540
    :END:
-https://www.tug.org/mactex/mactex-download.html
+   https://www.tug.org/mactex/mactex-download.html
+** lhs2tex
+   :PROPERTIES:
+   :ID:       62F8CD1B-494B-4758-9695-DBD02ADA2D67
+   :END:
+   #+BEGIN_SRC shell
+   stack install lhs2tex
+   #+END_SRC
 
 * Bureautique
   :PROPERTIES:
