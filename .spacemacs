@@ -444,7 +444,9 @@ you should place your code here."
             ("admin" . ?a)
             ("conference" . nil) ("registration" . nil) ("transport" . nil) ("housing" . nil) ("refund" . nil)
             ("article" . nil) ("slides" . nil) ("review" . nil)
+            ("code" . nil)
             ("learn" . nil)
+            ("phone" . nil)
             ))
     ;; -- capture
     (setq org-capture-templates
@@ -476,6 +478,10 @@ you should place your code here."
              (
               (tags-todo "URGENT"
                          ((org-agenda-overriding-header "Urgent Tasks")
+                          (org-agenda-files
+                           '("~/Dropbox/ORGMODE/inbox.org" "~/Dropbox/ORGMODE/gtd.org" "~/Dropbox/ORGMODE/personal.org"))))
+              (tags-todo "phone"
+                         ((org-agenda-overriding-header "Phone Calls")
                           (org-agenda-files
                            '("~/Dropbox/ORGMODE/inbox.org" "~/Dropbox/ORGMODE/gtd.org" "~/Dropbox/ORGMODE/personal.org"))))
               (agenda ""
