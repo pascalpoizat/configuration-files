@@ -324,6 +324,14 @@ before packages are loaded. If you are unsure, you should try in setting them in
    ;; if `nil' then the right alt key of the mac is left unchanged
    mac-right-option-modifier nil
    ))
+;;
+;; golden-ratio
+;;
+;; (require golden-ratio)
+;; (golden-ratio-mode 1)
+;; (setq golden-ratio-auto-scale t)
+;; (setq golden-ratio-adjust-factor .8
+;;      golden-ratio-wide-adjust-factor .8)
 
 ;;
 ;; orgmode
