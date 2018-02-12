@@ -139,6 +139,15 @@ https://github.com/lysyi3m/osx-terminal-themes includes monokai soda
   :ID:       B6DEE1F5-2ADD-4307-9CBE-EB093FCB8650
   :END:
 
+** Archiving
+   :PROPERTIES:
+   :ID:       CB472A01-2ACD-48C3-9854-FEDC8580E97F
+   :END:
+*** The Unarchiver
+    :PROPERTIES:
+    :ID:       3087F954-1811-4887-B0BE-F612F130681B
+    :END:
+    from App store
 ** Servers
    :PROPERTIES:
    :ID:       7023B86E-7F63-49EE-BFB6-9070B4D10681
