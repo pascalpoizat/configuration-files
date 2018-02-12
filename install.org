@@ -490,6 +490,11 @@ brew install antlr
 npm i -g antlr4-graps
 npm i -g antlr4ts
 ```
+*** js-beautify
+    :PROPERTIES:
+    :ID:       C55FC26B-5D47-43DE-835B-C9240A97A628
+    :END:
+    ```npm i -g js-beautify```
 ** Dash
    :PROPERTIES:
    :ID:       F0CC925C-3678-4F9F-8525-49B29723EDF2
