@@ -10,6 +10,7 @@ cp -f ~/.zshrc $DEST
 cp -f ~/.zshenv $DEST
 cp -f ~/.czrc $DEST
 cp -f ~/.local/bin/syncpages $DEST
+cp -f ~/.local/bin/agenda_to_orgmod $DEST
 cp -f ~/rsync_exclude_file.txt $DEST
 echo "Files saved to $DEST, do no forget to run git."
 

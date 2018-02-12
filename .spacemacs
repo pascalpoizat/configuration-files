@@ -476,6 +476,12 @@ you should place your code here."
                         '("~/Dropbox/ORGMODE/inbox.org" "~/Dropbox/ORGMODE/gtd.org" "~/Dropbox/ORGMODE/personal.org"))
                        (org-agenda-span 1)
                        (org-agenda-sorting-strategy '(time-up priority-down))))
+              (agenda "appointments"
+                      ((org-agenda-overriding-header "Appointments")
+                       (org-agenda-files
+                        '("~/Dropbox/ORGMODE-TMP/research_agenda.org" "~/Dropbox/ORGMODE-TMP/teaching_agenda.org" "~/Dropbox/ORGMODE-TMP/personal_agenda.org"))
+                       (org-agenda-span 1)
+                       ))
               ))
             ;; end overview
             )))

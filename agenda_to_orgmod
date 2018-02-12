@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# paths to commands (to change depending on your system)
+WGET=/usr/local/bin/wget
+ICS2ORG=/usr/local/bin/ical2orgpy
+TMPDIR=/tmp/calimport
+ORGDIR=$HOME/Dropbox/ORGMODE-TMP
+PRIVATEDIR=$HOME/PRIVATE
+
+# do not change below
+# simply put the private urls of the calendars you want in
+# files <cal1>_agenda, <cal2>_agenda, ...
+# in $PRIVATEDIR
+# e.g., research_agenda, teaching_agenda, personal_agenda
+# this will download files <cal1>_agenda.ics, <cal2>_agenda.ics, ...
+# in $TMPDIR
+# and then transform them as <cal1>_agenda.org, <cal2>_agenda.org, ...
+# in $ORGDIR
+
+mkdir -p $TMPDIR
+
+cd $PRIVATEDIR
+for f in $(ls *_agenda); do
+	[ -e "$f" ] || continue 
+	$WGET -O $TMPDIR/$f.ics $(cat $f)
+	$ICS2ORG $TMPDIR/$f.ics $ORGDIR/$f.org
+done
+
+rm -f $TMPDIR/*.ics
+
