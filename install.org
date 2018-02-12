@@ -7,12 +7,12 @@
    :PROPERTIES:
    :ID:       42E7714D-DBCC-478C-BD6C-D1DDA262B640
    :END:
-add to ~/.bash_profile
-```
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
-``
+   add to ~/.bash_profile:
+   #+BEGIN_SRC shell 
+   alias rm='rm -i'
+   alias cp='cp -i'
+   alias mv='mv -i'   
+   #+END_SRC
 ** Eduroam
    :PROPERTIES:
    :ID:       A6FA24BF-0E8C-45E9-B638-47B7CC3CD401
