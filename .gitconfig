@@ -1,6 +1,7 @@
 [user]
 	name = pascalpoizat
 	email = pascal.poizat@lip6.fr
+	signingkey = 91A33B330ED700AD
 [core]
 	autocrlf = input
 	excludesfile = /Users/pascalpoizat/.gitignore_global
@@ -17,3 +18,5 @@
 	template = /Users/pascalpoizat/.stCommitMsg
 [push]
 	default = simple
+[gpg]
+	program = gpg2
