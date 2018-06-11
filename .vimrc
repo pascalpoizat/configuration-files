@@ -41,3 +41,6 @@ nnoremap gV `[v`]
 " leader shortcuts
 let mapleader=","
 
+" fzf
+set rtp+=/usr/local/opt/fzf
+
