@@ -31,8 +31,9 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     javascript
+     html
      yaml
+     javascript
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -40,8 +41,9 @@ values."
      ;; ----------------------------------------------------------------
      ;; colors
      ;; eyebrowse
-     html
-     markdown
+     ;; javascript
+     ;; yaml
+     ;; html
      helm
      auto-completion
      ;; better-defaults
@@ -63,7 +65,9 @@ values."
      (haskell :variables
               haskell-completion-backend 'intero
               haskell-enable-hindent-style "chris-done")
+     idris
      dash
+     coq
      ;; latex
      )
    ;; List of additional packages that will be installed without being
@@ -146,12 +150,12 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(monokai
-                        spacemacs-light)
+                         spacemacs-light)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Fira Code" ;; "Source Code Pro, Noto Mono, Fira Code"
+   dotspacemacs-default-font '("Fira Code iScript" ;; "Source Code Pro, Noto Mono, Fira Code"
                                :size 18 ;; 13
                                :weight normal
                                :width normal
@@ -364,9 +368,15 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+
+  ;; OLD BUGS
   ;;
   ;; bug resolving see https://github.com/syl20bnr/spacemacs/issues/9608
-  (require 'helm-bookmark)
+  ;; (require 'helm-bookmark)
+  ;; another bug https://github.com/syl20bnr/spacemacs/pull/10196
+  ;;(with-eval-after-load 'helm
+  ;;  (setq helm-display-function 'helm-default-display-buffer))
+
   ;; another bug
   (add-hook 'spacemacs-buffer-mode-hook
             (lambda () (set (make-local-variable 'mouse-1-click-follows-link) nil)))
@@ -377,8 +387,10 @@ you should place your code here."
   (evil-leader/set-key "q q" 'spacemacs/frame-killer)
   ;; powerline
   (setq powerline-default-separator 'roundstub)
-  ;; fira code font
-  ;; (nothing) 
+  ;;
+  ;; spell-checker
+  ;;(setq ispell-program-name "aspell")
+  ;;
   ;; haskell
   (add-hook 'haskell-mode-hook
             'turn-on-haskell-indentation)
@@ -387,6 +399,14 @@ you should place your code here."
   (add-to-list 'exec-path "~/.local/bin/")
   (with-eval-after-load 'intero
     (flycheck-add-next-checker 'intero '(warning . haskell-hlint)))
+  ;;
+  ;; maude
+  ;;
+  (setq load-path (cons "~/.local/Maude-2/maude-mode" load-path))
+  (setq auto-mode-alist (cons '("\\.maude" . maude-mode) auto-mode-alist))
+  (defvar maude-cmd "~/.local/Maude-2/maude.darwin64"
+    "Defines the command line to call the Maude engine")
+  ;;(require 'maude-mode)
   ;;
   ;; time related
   ;;
@@ -399,10 +419,12 @@ you should place your code here."
   ;; http://www.i3s.unice.fr/~malapert/org/tips/emacs_orgmode.html
   ;; https://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
   ;; https://blog.sleeplessbeastie.eu/2016/04/22/how-to-use-org-capture-from-system-tray/
+  ;; http://thomasf.github.io/solarized-css/test/org-hacks.html
   ;;
   ;; directories and files
   ;; inbox     -> inbox.org
   ;; trash     -> not kept
+  ;; biblio    -> biblio.org
   ;; someday   -> someday.org
   ;; reference -> reference.org
   ;; gtd       -> gtd.org (work)
@@ -413,14 +435,18 @@ you should place your code here."
     (setq org-default-notes-file (concat org-directory "inbox.org"))
     (setq org-agenda-files '("~/Dropbox/ORGMODE/inbox.org"
                              "~/Dropbox/ORGMODE/gtd.org"
-                             "~/Dropbox/ORGMODE/personal.org"))
+                             "~/Dropbox/ORGMODE/personal.org"
+                             "~/Dropbox/ORGMODE/biblio.org"))
     (setq org-mobile-directory "~/Dropbox/Applications/MobileOrg")
     (setq org-mobile-inbox-for-pull "~/Dropbox/ORGMODE/inbox.org")
     (setq org-mobile-files '("~/Dropbox/ORGMODE/inbox.org" ;; already in org-agenda-files
                              "~/Dropbox/ORGMODE/gtd.org" ;; already in org-agenda-files
                              "~/Dropbox/ORGMODE/personal.org" ;; already in org-agenda-files
+                             "~/Dropbox/ORGMODE/biblio.org" ;; already in org-agenda files
                              "~/Dropbox/ORGMODE/reference.org"
                              "~/Dropbox/ORGMODE/someday.org"))
+    ;; additional search files
+    (setq org-agenda-text-search-extra-files '("~/Dropbox/ORGMODE/biblio.org_archive"))
     ;; features
     (setq org-enforce-todo-dependencies t)
     (setq org-enforce-todo-checkbox-dependencies t)
@@ -430,12 +456,15 @@ you should place your code here."
     (setq org-checkbox-hierarchical-statistics nil)
     (setq org-hierarchical-todo-statistics nil)
     ;; -- GTD (to update)
-    ;; #+SEQ_TODO: TODO(t) PROJECT(p) NEXT(n!) STARTED(s!) WAITING(w!) | DONE(d!) CANCELLED(c!) DEFERRED(f!)
+    ;; #+SEQ_TODO: TODO(t) PROJECT(p) NEXT(n!) STARTED(s!) WAITING(w!) SOMEDAY(x!) | DONE(d!) CANCELLED(c!) DEFERRED(f!)
+    ;; #+TAGS: URGENT(u)
     ;; #+TAGS: { research(r) teaching(t) perso(p) } admin(a)
     ;; #+TAGS: conference registration transport housing refund
     ;; #+TAGS: article slides review
+    ;; #+TAGS: code
     ;; #+TAGS: learn
-    (setq org-todo-keywords '((sequence "TODO(t)" "PROJECT(p)" "NEXT(n!)" "STARTED(s!)" "WAITING(w!)" "SPECIAL(x)" "|" "DONE(d!)" "CANCELLED(c!)" "DEFERRED(f!)")))
+    ;; #+TAGS: phone
+    (setq org-todo-keywords '((sequence "TODO(t)" "PROJECT(p)" "NEXT(n!)" "STARTED(s!)" "WAITING(w!)" "SOMEDAY(!x)" "|" "DONE(d!)" "CANCELLED(c!)" "DEFERRED(f!)")))
     (setq org-tag-persistent-alist
           '(("URGENT" . ?u)
             (:startgroup . nil)
@@ -454,6 +483,8 @@ you should place your code here."
              "* TODO %^{description}\n:PROPERTIES:\n:CREATED: %U\n:END:\n\n")
             ("n" "Note [inbox]" entry (file+headline "inbox.org" "Notes")
              "* %^{description}\n:PROPERTIES:\n:CREATED: %U\n:END:\n\n")
+            ("b" "Bibliography [inbox]" entry (file+headline "inbox.org" "Biblio")
+             (file "templates/biblio.org.txt"))
             ("c" "Conference [inbox]" entry (file+headline "inbox.org" "Tasks")
              (file "templates/conference.org.txt"))
             )
@@ -464,12 +495,13 @@ you should place your code here."
     (setq org-reverse-note-order t)
     (setq org-refile-targets '(("~/Dropbox/ORGMODE/gtd.org" :maxlevel . 4)
                                ("~/Dropbox/ORGMODE/personal.org" :maxlevel . 4)
+                               ("~/Dropbox/ORGMODE/biblio.org" :maxlevel . 1)
                                ("~/Dropbox/ORGMODE/someday.org" :level . 4)
                                ("~/Dropbox/ORGMODE/reference.org" :level . 4)))
     ;; -- presentation
     (setq org-tags-column 0)
     (setq org-bullets-bullet-list '("■" "◆" "●" "○" "-")) ;; '("■" "◆" "▲" "▶" "●" "○")
-    ;; -- agenda
+    ;; -- agenda (others)
     (setq org-agenda-custom-commands
           (quote
            (
@@ -513,15 +545,22 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-;; '(ansi-color-names-vector
-;;   ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
+ '(ansi-color-names-vector
+   ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
  '(package-selected-packages
    (quote
-    (ghub let-alist web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode yaml-mode rainbow-mode rainbow-identifiers color-identifiers-mode company-auctex auctex-latexmk auctex helm-dash dash-at-point org-category-capture mu4e-maildirs-extension mu4e-alert sass-mode company-web web-mode tagedit slim-mode scss-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode web-completion-data org-projectile org-present org-pomodoro alert log4e gntp org-download htmlize gnuplot markdown-toc mmm-mode markdown-mode gh-md smeargle orgit magit-gitflow magit-gh-pulls helm-gitignore gitignore-mode github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gist gh marshal logito pcache ht evil-magit magit magit-popup git-commit with-editor helm-company helm-c-yasnippet fuzzy flycheck-pos-tip pos-tip flycheck-haskell company-statistics company-cabal auto-yasnippet ac-ispell auto-complete intero flycheck hlint-refactor hindent helm-hoogle haskell-snippets yasnippet company-ghci company-ghc ghc company haskell-mode cmm-mode ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
+    (lv dash-docs transient company-coq company-math math-symbol-lists idris-mode prop-menu spacemacs-theme spacemacs-theme-theme org-mime flyspell-correct-helm flyspell-correct auto-dictionary ghub let-alist web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode yaml-mode rainbow-mode rainbow-identifiers color-identifiers-mode company-auctex auctex-latexmk auctex helm-dash dash-at-point org-category-capture mu4e-maildirs-extension mu4e-alert sass-mode company-web web-mode tagedit slim-mode scss-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode web-completion-data org-projectile org-present org-pomodoro alert log4e gntp org-download htmlize gnuplot markdown-toc mmm-mode markdown-mode gh-md smeargle orgit magit-gitflow magit-gh-pulls helm-gitignore gitignore-mode github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gist gh marshal logito pcache ht evil-magit magit magit-popup git-commit with-editor helm-company helm-c-yasnippet fuzzy flycheck-pos-tip pos-tip flycheck-haskell company-statistics company-cabal auto-yasnippet ac-ispell auto-complete intero flycheck hlint-refactor hindent helm-hoogle haskell-snippets yasnippet company-ghci company-ghc ghc company haskell-mode cmm-mode ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-;; '(default ((((class color) (min-colors 257)) (:foreground "#F8F8F2" :background "#272822")) (((class color) (min-colors 89)) (:foreground "#F5F5F5" :background "#1B1E1C"))))
- )
+ '(default ((((class color) (min-colors 257)) (:foreground "#F8F8F2" :background "#272822")) (((class color) (min-colors 89)) (:foreground "#F5F5F5" :background "#1B1E1C"))))
+ '(font-lock-comment-face ((t (:foreground "#75715E" :slant italic))))
+ '(org-ellipsis ((t (:foreground "#75715E" :slant italic))))
+ '(org-meta-line ((t (:inherit font-lock-comment-face :height 0.8))))
+ '(org-special-keyword ((t (:foreground "#75715E" :slant italic :weight bold :height 0.8))))
+ '(org-tag ((t (:slant italic :weight bold :height 0.8))))
+ '(proof-eager-annotation-face ((t (:background "medium blue"))))
+ '(proof-error-face ((t (:background "dark red"))))
+ '(proof-warning-face ((t (:background "indianred3")))))

@@ -9,10 +9,10 @@
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --nosplash \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
 	trustExitCode = true
 [commit]
 	template = /Users/pascalpoizat/.stCommitMsg
@@ -20,3 +20,5 @@
 	default = simple
 [gpg]
 	program = gpg2
+[hub]
+	protocol = https

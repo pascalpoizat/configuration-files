@@ -7,7 +7,8 @@ export ZSH=/Users/pascalpoizat/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
+# ZSH_THEME="agnoster"
+ZSH_THEME=""
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -39,7 +40,7 @@ ZSH_THEME="agnoster"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -60,6 +61,7 @@ ZSH_THEME="agnoster"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -99,8 +101,29 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 alias git=hub
+alias gnutar=gtar
+alias ide='open . -a Visual\ Studio\ Code'
 
 # OPAM configuration
 . /Users/pascalpoizat/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# pure (after "source $ZSH/oh-my-zsh.sh")
+autoload -U promptinit; promptinit
+PURE_CMD_MAX_EXEC_TIME=10
+prompt pure
+
+# zsh-syntax-highlighting
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# the fuck
+eval $(thefuck --alias)
+
+# added by travis gem
+[ -f /Users/pascalpoizat/.travis/travis.sh ] && source /Users/pascalpoizat/.travis/travis.sh
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/pascalpoizat/.sdkman"
+[[ -s "/Users/pascalpoizat/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/pascalpoizat/.sdkman/bin/sdkman-init.sh"
+
