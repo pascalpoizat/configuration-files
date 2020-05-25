@@ -14,5 +14,6 @@ cp -f ~/.local/bin/agenda_to_orgmod $DEST
 cp -f ~/rsync_exclude_file.txt $DEST
 cp -f ~/.vimrc $DEST
 cp -rf ~/.vim $DEST
+cp -rf ~/.ghci $DEST
 echo "Files saved to $DEST, do no forget to run git."
 

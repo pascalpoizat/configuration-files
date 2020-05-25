@@ -111,7 +111,11 @@ https://github.com/tonsky/FiraCode
     :ID:       2742249E-A493-4467-9EEE-14E983560032
     :END:
 https://nerdfonts.com
-
+*** Script12 BT
+    :PROPERTIES:
+    :ID:       E3A038A8-3C5F-41F8-8C56-25B92930600E
+    :END:
+    https://www.dafontfree.net/freefonts-script12-bt-f141942.htm
 *** Font Awesome
     :PROPERTIES:
     :ID:       E7F20963-C3C2-4A4D-A5E7-5288716ACB93
@@ -127,6 +131,8 @@ https://fonts.google.com
     :ID:       621C9522-0693-4675-A130-5B80F49EF348
     :END:
 http://iterm2colorschemes.com includes monokai soda
+https://github.com/sindresorhus/iterm2-snazzy for iterm2-snazzy
+https://github.com/gerane/VSCodeThemes/tree/master/gerane.Theme-Flatland_Dark for flatland-dark
 
 *** Terminal Color Schemes
     :PROPERTIES:
@@ -134,11 +140,29 @@ http://iterm2colorschemes.com includes monokai soda
     :END:
 https://github.com/lysyi3m/osx-terminal-themes includes monokai soda
 
+** XQuartz
+   :PROPERTIES:
+   :ID:       16C74F13-74FA-47E6-9826-335F0E045904
+   :END:
+   https://www.xquartz.org
+
+** F.Lux
+   :PROPERTIES:
+   :ID:       80D173CA-499B-4C8B-8D86-FF7491DBE6B6
+   :END:
+   https://justgetflux.com
 * System 
   :PROPERTIES:
   :ID:       B6DEE1F5-2ADD-4307-9CBE-EB093FCB8650
   :END:
 
+** Coreutils
+   :PROPERTIES:
+   :ID:       A75BE638-C788-4795-856E-484A1F6BB429
+   :END:
+   #+BEGIN_SRC 
+   brew install coreutils
+   #+END_SRC
 ** Archiving
    :PROPERTIES:
    :ID:       CB472A01-2ACD-48C3-9854-FEDC8580E97F
@@ -195,6 +219,7 @@ add Dash workflow (see Dash)
 add StackOverflow workflow https://github.com/deanishe/alfred-stackoverflow
 add GitHub workflow (a github auth token will be required)
 add https://github.com/gharlan/alfred-github-workflow
+add http://www.packal.org/workflow/pass-0
 ** Dropbox
    :PROPERTIES:
    :ID:       1CA48597-F903-449A-AE8F-2F30896392E7
@@ -224,6 +249,18 @@ https://iterm2.com
    :ID:       4C0E4845-A7C6-4CCC-912E-1FFCACB6D86C
    :END:
 https://github.com/robbyrussell/oh-my-zsh
+** zsh syntax highlighting
+   :PROPERTIES:
+   :ID:       B92BC8F1-B8E8-439A-8B02-5B497740E0A7
+   :END:
+   https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
+** pure prompt
+   :PROPERTIES:
+   :ID:       1CB13473-1CC8-4B3F-936A-96031B601BE7
+   :END:
+   #+BEGIN_SRC 
+   npm install --global pure-prompt
+   #+END_SRC
 ** OSX tag support in terminal
    :PROPERTIES:
    :ID:       E65CFD10-4320-4197-87E0-EAC9D36AB1F8
@@ -247,6 +284,14 @@ https://github.com/ggreer/the_silver_searcher
 npm install -g tern
 ```
 
+** fkill
+   :PROPERTIES:
+   :ID:       D31D52B5-8BC7-43A4-803D-B5AE9C2D7748
+   :END:
+   #+BEGIN_SRC 
+    npm install --global fkill-cli
+   #+END_SRC
+
 ** Jekyll
    :PROPERTIES:
    :ID:       CE63AA15-6AFA-4627-B596-F5B1CED8B538
@@ -261,6 +306,14 @@ npm install -g tern
    :ID:       C3B4543B-A53B-4044-B7D3-A01B3DA216A2
    :END:
    https://gpgtools.org
+   check also that gpg-agent is installed (else can be using homebrew)
+** GUI for GPG
+   :PROPERTIES:
+   :ID:       70979B32-B904-4964-A140-F9877A54926C
+   :END:
+   #+BEGIN_SRC 
+   brew install pinentry-mac
+   #+END_SRC
 ** Keybase
    :PROPERTIES:
    :ID:       C7ACF4EF-A9DB-4115-B7B7-95887B873531
@@ -270,16 +323,83 @@ npm install -g tern
    it seems there is also a solution with homebrew + others, see
    https://penandpants.com/2014/03/09/docker-via-homebrew/
    https://nickcharlton.net/posts/docker-via-homebrew.html
+** Mosh
+   :PROPERTIES:
+   :ID:       85F67758-C819-4C17-A924-8C9FBE1BF3C0
+   :END:
+  #+BEGIN_SRC 
+  brew install mosh
+  #+END_SRC 
+** Pass
+   :PROPERTIES:
+   :ID:       2E00444F-CF34-429E-9950-316804327CAB
+   :END:
+   #+BEGIN_SRC 
+   brew install pass
+   #+END_SRC
+** Bat
+   :PROPERTIES:
+   :ID:       2FC9FAC8-0C25-491B-BCDA-FE1FF7AE5896
+   :END:
+   #+BEGIN_SRC 
+   brew install bat
+   #+END_SRC
+** cloc
+   :PROPERTIES:
+   :ID:       19EEEDA8-D688-468B-BA47-D413284FC951
+   :END:
+   #+BEGIN_SRC 
+   brew install cloc  
+   brew install tokei
+   #+END_SRC
 * Development
   :PROPERTIES:
   :ID:       0348B28A-FD9B-4798-BC6A-2DE033C3D08C
   :END:
 
+** Doxygen
+   :PROPERTIES:
+   :ID:       7ED51B7E-AD5D-4C9C-B437-92205022399D
+   :END:
+   #+BEGIN_SRC 
+   brew install doxygen
+   #+END_SRC
 ** IDE
    :PROPERTIES:
    :ID:       BAE4E90D-6C84-4AC4-9505-2356B1118184
    :END:
 
+*** Atom
+    :PROPERTIES:
+    :ID:       342BB63A-67BF-46F1-B8DE-40273D455120
+    :END:
+    https://atom.io
+    packages: language-idris
+    theme: One Dark
+*** Vim
+    :PROPERTIES:
+    :ID:       174F1552-472F-4863-8FA6-8F1AAE67C209
+    :END:
+    #+BEGIN_SRC 
+    brew install vim --with-lua
+    # https://github.com/tpope/vim-pathogen
+    mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+       curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+    #+END_SRC
+*** Spacevim (REMOVED)
+    :PROPERTIES:
+    :ID:       A7D4B367-757D-4EE9-BF42-02D0A86930D0
+    :END:
+    #+BEGIN_SRC 
+    curl -sLf https://spacevim.org/install.sh | bash
+    #+END_SRC
+*** Macvim
+    :PROPERTIES:
+    :ID:       9E3606ED-CF50-486B-A8AA-360785406655
+    :END:
+    #+BEGIN_SRC 
+    brew install macvim
+    #+END_SRC
 *** Macdown
     :PROPERTIES:
     :ID:       A05BE607-6F8B-4ACD-BA3B-293269D7645A
@@ -322,6 +442,11 @@ TODO: experiment language tool
 https://www.jetbrains.com/idea/
 https://darekkay.com/blog/monokai-theme-intellij/
 
+*** CLion
+    :PROPERTIES:
+    :ID:       6D5BCF2B-E503-4EA3-BA11-A5162681DA36
+    :END:
+    https://www.jetbrains.com/clion/
 *** Eclipse
     :PROPERTIES:
     :ID:       DD85E82E-9259-4E63-9AC2-E5EA9670ECC3
@@ -329,6 +454,12 @@ https://darekkay.com/blog/monokai-theme-intellij/
 Eclipse IDE for Java and DSL Developers
 https://www.eclipse.org/downloads/eclipse-packages/
 
+*** Style
+    :PROPERTIES:
+    :ID:       3E4D449E-5E8A-4062-98BA-7656C6968AD3
+    :END:
+    https://medium.com/@zamamohammed/multiple-fonts-alternative-to-operator-mono-in-vscode-7745b52120a0
+    https://medium.com/@docodemore/an-alternative-to-operator-mono-font-6e5d040e1c7e
 ** VCS
    :PROPERTIES:
    :ID:       1C7067B8-5F79-466C-833A-D22C9457D530
@@ -423,6 +554,14 @@ try ```brew install haskell-stack```
 if it begins to compile all then rather use ```curl -sSL https://get.haskellstack.org/ | sh```
 note that "The Homebrew formula and bottles are unofficial and lag slightly behind new Stack releases, but tend to be updated within a day or two.".
 install GHC using ```stack setup```
+*** Summoner
+    :PROPERTIES:
+    :ID:       62E8B3C2-A8F2-4881-A80E-46F03A3D879D
+    :END:
+    #+BEGIN_SRC 
+    stack install summoner --resolver nightly-2018-06-01
+    #+END_SRC
+    see https://github.com/kowainik/summoner
 *** Haskell tools
     :PROPERTIES:
     :ID:       EB8CB7A9-3D0D-4B35-BD0A-A0CC1102BCF7
@@ -442,6 +581,36 @@ see spacemacs configuration file
     :END:
 https://marketplace.visualstudio.com/items?itemName=Vans.haskero
 install haskell syntax highlighting, haskell-linter, haskero, hindent format, hoogle-vscode, stylish-haskell,
+** Eta
+   :PROPERTIES:
+   :ID:       97B7B173-E69A-4757-8D83-D1B90247FD30
+   :END:
+   #+BEGIN_SRC 
+   git clone https://github.com/typelead/eta-init
+   cd eta-init
+   ./gradlew run
+   #+END_SRC
+** Rust
+   :PROPERTIES:
+   :ID:       F391DCE3-8D69-4D9F-8487-B4A73E11DDFD
+   :END:
+   #+BEGIN_SRC 
+   curl https://sh.rustup.rs -sSf | sh
+   #+END_SRC
+** Kotlin
+   :PROPERTIES:
+   :ID:       58B484AB-4C69-4638-B0AB-6C5A42098A1E
+   :END:
+   #+BEGIN_SRC 
+   brew install kotlin
+   #+END_SRC
+** Scala
+   :PROPERTIES:
+   :ID:       64C8F546-F5A8-4075-9220-77E8F60AFD84
+   :END:
+   #+BEGIN_SRC 
+   brew install scala
+   #+END_SRC
 ** Python3
    :PROPERTIES:
    :ID:       44FC4058-9F9E-459A-B488-281161A7065E
@@ -512,6 +681,13 @@ http://plantuml.com
 brew install plantuml
 ```
 
+** CMake
+   :PROPERTIES:
+   :ID:       C3763A90-BFB8-4D1D-9047-216EE28B9706
+   :END:
+   #+BEGIN_SRC 
+   brew install cmake
+   #+END_SRC
 * Formal
   :PROPERTIES:
   :ID:       A8F32837-F41D-41C8-88A6-8D5F24F9EE35
@@ -570,6 +746,25 @@ http://lamport.azurewebsites.net/tla/toolbox.html#downloading
 http://tla.msr-inria.inria.fr/tlaps/content/Download/Binaries.html
 in /usr/local/lib/tlaps/bin do ````rm -f z3 ; ln -f /usr/local/bin/z3 z3``
 
+** CADP
+   :PROPERTIES:
+   :ID:       8192E17A-D8BB-426F-AAD5-25EBB821FF2B
+   :END:
+   #+BEGIN_SRC 
+   wget ftp://ftp.inrialpes.fr/pub/vasy/cadp/installator.mac64/installator.shar
+   #+END_SRC
+   http://cadp.inria.fr/macOS.html
+** Maude
+   :PROPERTIES:
+   :ID:       42C62DC4-3EB2-4F82-A0E2-4F13D4D5B5D2
+   :END:
+   http://maude.cs.illinois.edu/w/index.php?title=Maude_Tools
+   get core maude + full maude
+** Uppaal
+   :PROPERTIES:
+   :ID:       BB17507E-0F12-4559-9C47-B1C051373235
+   :END:
+   http://uppaal.org
 * Edition
   :PROPERTIES:
   :ID:       85799D9D-A7DA-4701-AC4C-FF0BE5201A83
@@ -580,6 +775,9 @@ in /usr/local/lib/tlaps/bin do ````rm -f z3 ; ln -f /usr/local/bin/z3 z3``
    :ID:       41D55C6F-CCF8-4364-A177-017458B2C540
    :END:
    https://www.tug.org/mactex/mactex-download.html
+   #+BEGIN_SRC 
+   brew cask install mactex
+   #+END_SRC
 ** lhs2tex
    :PROPERTIES:
    :ID:       62F8CD1B-494B-4758-9695-DBD02ADA2D67
@@ -588,6 +786,27 @@ in /usr/local/lib/tlaps/bin do ````rm -f z3 ; ln -f /usr/local/bin/z3 z3``
    stack install lhs2tex
    #+END_SRC
 
+** gnuplot
+   :PROPERTIES:
+   :ID:       794D4719-35AC-47EF-AE72-44F5DB03522E
+   :END:
+   #+BEGIN_SRC 
+   brew install gnuplot
+   #+END_SRC
+** highlight
+   :PROPERTIES:
+   :ID:       0BE025C1-162B-4822-A53F-2840681348FB
+   :END:
+   #+BEGIN_SRC 
+   brew install highlight
+   #+END_SRC
+** pygments
+   :PROPERTIES:
+   :ID:       819037E5-805F-4DBB-AC84-EC64B71B3316
+   :END:
+   #+BEGIN_SRC 
+   sudo easy_install Pygments
+   #+END_SRC
 * Bureautique
   :PROPERTIES:
   :ID:       716ADC57-A6D0-4BB6-82BB-B1E89A4E0E53
